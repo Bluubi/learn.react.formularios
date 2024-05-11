@@ -1,7 +1,7 @@
 import styles from './address.module.css'
 import {useFormContext} from "react-hook-form";
-import utils from '../utils.module.css';
-import {PracticeForm} from "../App.tsx";
+import utils from '../../utils.module.css';
+import {PracticeForm} from "../../App.tsx";
 
 export const AddressForm = () => {
 
@@ -18,7 +18,7 @@ export const AddressForm = () => {
             </div>
             <div className={utils.formBlock}>
                 <label htmlFor={'address'}>Nº</label>
-                <input type={'number'} className={utils.input} id={'address'} {...methods.register('address.numberHouse')} />
+                <input type={'number'} className={`${utils.input} ${utils.small}`} id={'address'} {...methods.register('address.numberHouse')} />
             </div>
         </div>
     )

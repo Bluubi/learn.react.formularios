@@ -12,6 +12,10 @@
     padding: 0.5rem;
 }
 
+.input.small {
+    width: 3rem;
+}
+
 .submit {
     grid-area: submit;
     padding: 0.5rem;

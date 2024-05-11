@@ -1,6 +1,6 @@
 import {useFormContext} from "react-hook-form";
-import utils from '../utils.module.css';
-import {PracticeForm} from "../App.tsx";
+import utils from '../../utils.module.css';
+import {PracticeForm} from "../../App.tsx";
 
 export const PersonalForm = () => {
 
