@@ -1,0 +1,31 @@
+/***> MAIN CLASSES <****/
+
+.formBlock {
+    width: 100%;
+    padding: 0.5rem;
+}
+
+.input {
+    border: 0;
+    border-bottom: 1px solid var(--blue-600);
+    width: 100%;
+    padding: 0.5rem;
+}
+
+.submit {
+    grid-area: submit;
+    padding: 0.5rem;
+    border: 0;
+    border-radius: 0.2rem;
+    cursor: pointer;
+    background: var(--blue-800);
+    color: var(--white);
+}
+
+.submit:hover {
+    background: var(--blue-600);
+}
+
+.error {
+    color: red;
+}

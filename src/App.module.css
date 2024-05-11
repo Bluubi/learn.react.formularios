@@ -1,0 +1,29 @@
+:root {
+    --white: #eff6ff;
+    --blue-600: #2563eb;
+    --blue-800: #1e40af;
+    --blue-400: #60a5fa;
+}
+
+
+.mainForm {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+}
+
+.containerForm {
+    display: grid;
+    grid-template-areas: "personal personal address address"
+                         "submit submit submit submit";
+    gap: 1rem;
+}
+
+.personalForm {
+    grid-area: personal;
+
+}
+
