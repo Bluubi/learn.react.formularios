@@ -5,25 +5,9 @@
     --blue-400: #60a5fa;
 }
 
-
-.mainForm {
+.formContainer {
     width: 100vw;
     height: 100vh;
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
 }
 
-.containerForm {
-    display: grid;
-    grid-template-areas: "personal personal address address"
-                         "submit submit submit submit";
-    gap: 1rem;
-}
-
-.personalForm {
-    grid-area: personal;
-
-}
 

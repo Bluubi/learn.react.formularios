@@ -1,34 +1,37 @@
-import styles from './App.module.css'
 import {FormProvider, useForm} from "react-hook-form";
-import {PersonalForm} from "./first-step/personal-form/personal-form.tsx";
-import utils from './utils.module.css'
-import {AddressForm} from "./first-step/address-form/address-form.tsx";
-import {FirstStep} from "./first-step/first-step.tsx";
+import style from './App.module.css';
+import util from './utils.module.css'
+import {useRef} from "react";
+import {FormGroup} from "./forms/form-group/form-group.tsx";
 
-export interface PracticeForm {
-    name: string;
-    surname: string;
-    address: {
-        direction: string;
-        numberHouse: number;
-    }
-}
 function App() {
 
 
+    const methods = useForm();
+    const labelNameRef = useRef<HTMLLabelElement>(null);
+    const labelSurnameRef = useRef<HTMLLabelElement>(null);
+    const { register } = methods;
 
-    const methods   = useForm<PracticeForm>();
+    return (
+        <FormProvider {...methods}>
+            <div className={style.formContainer}>
+            <form className={util.form}>
 
-  return (
-   <div className={styles.mainForm}>
+                <FormGroup ref={labelNameRef} name={'name'} />
+                <FormGroup ref={labelSurnameRef} name={'surname'} />
 
-       <FormProvider {...methods}>
-            <form className={styles.containerForm} onSubmit={methods.handleSubmit((data) => console.log(data))}>
-            <FirstStep />
-        </form>
-   </FormProvider>
-   </div>
-  )
+                {/*<div className={style.formGroup} >
+                    <input type={"text"} className={util.input} {... register('name') } />
+                    <label htmlFor={'name'} ref={labelNameRef} className={util.label}> Nombre </label>
+                </div>
+                <div className={style.formGroup}>
+                    <input type={"text"} className={util.input} {... register('surname') } />
+                    <label htmlFor={'apellido'} ref={labelSurnameRef} className={util.label} > Apellido </label>
+                </div>*/}
+            </form>
+            </div>
+        </FormProvider>
+    )
 }
 
-export default App
+export default App;

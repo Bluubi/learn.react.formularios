@@ -1,29 +1,29 @@
-/***> MAIN CLASSES <****/
 
-.formBlock {
-    width: 100%;
-    padding: 0.5rem;
+.form {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .input {
     border: 0;
-    border-bottom: 1px solid var(--blue-600);
-    width: 100%;
     padding: 0.5rem;
+    border-bottom: 1px solid var(--blue-800);
 }
 
-.input.small {
-    width: 3rem;
+.label {
+    position: absolute;
+    top: 0;
+    bottom: 5px;
+    left: 5px;
+    pointer-events: none;
+    transition: all 100ms ease-in-out;
 }
 
-.submit {
-    grid-area: submit;
-    padding: 0.5rem;
-    border: 0;
-    border-radius: 0.2rem;
-    cursor: pointer;
-    background: var(--blue-800);
-    color: var(--white);
+.input:focus ~ .label {
+    top: -2rem;
 }
 
 .submit:hover {
