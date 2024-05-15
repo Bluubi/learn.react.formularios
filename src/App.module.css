@@ -8,6 +8,39 @@
 .formContainer {
     width: 100vw;
     height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
+.inputNumber {
+    padding: 0.5rem;
+    width: 3rem;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+.inputAge {
+    display: flex;
+    position: relative;
+}
+
+.inputAge > label {
+    position: absolute;
+    top: -20px;
+}
+
+.inputAge > input {
+    border: 0;
+    border-bottom: 1px solid var(--blue-800);
+}
 

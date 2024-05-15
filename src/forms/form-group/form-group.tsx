@@ -4,7 +4,7 @@ import {useFormContext} from "react-hook-form";
 import {forwardRef, useEffect} from "react";
 
 export const FormGroup = forwardRef<HTMLLabelElement, {name: string}>((props, ref) => {
-    const { register, watch } = useFormContext();
+    const { register, watch, formState: {errors } } = useFormContext();
 
     useEffect(() => {
 
@@ -22,8 +22,11 @@ export const FormGroup = forwardRef<HTMLLabelElement, {name: string}>((props, re
 
     return (
         <div className={style.formGroup}>
-            <input type={"text"} className={util.input} {...register(props.name)} />
+            <input type={"text"} className={util.input} {...register(props.name, {
+                required: 'This field is required'
+            })} />
             <label htmlFor={'name'} ref={ref} className={util.label}> { props.name } </label>
+             { errors[props.name] && <p className={style.error}> { errors[props.name]?.message } </p> }
         </div>
     )
 

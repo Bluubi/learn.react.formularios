@@ -1,37 +1,40 @@
-import {FormProvider, useForm} from "react-hook-form";
 import style from './App.module.css';
-import util from './utils.module.css'
-import {useRef} from "react";
-import {FormGroup} from "./forms/form-group/form-group.tsx";
+import util from "./utils.module.css";
+import {PersonalForm} from "./forms/steps/personal";
+import {FormProvider, useForm} from "react-hook-form";
+import {useState} from "react";
+import {HobbyForm} from './forms/steps/hobby';
 
 function App() {
 
+    const methods  = useForm();
 
-    const methods = useForm();
-    const labelNameRef = useRef<HTMLLabelElement>(null);
-    const labelSurnameRef = useRef<HTMLLabelElement>(null);
-    const { register } = methods;
+    const forms = [ 'PersonalForm', 'HobbyForm'];
+
+    const [ formulary, setFormulary ] = useState<string>('PersonalForm')
+
+
 
     return (
-        <FormProvider {...methods}>
-            <div className={style.formContainer}>
-            <form className={util.form}>
-
-                <FormGroup ref={labelNameRef} name={'name'} />
-                <FormGroup ref={labelSurnameRef} name={'surname'} />
-
-                {/*<div className={style.formGroup} >
-                    <input type={"text"} className={util.input} {... register('name') } />
-                    <label htmlFor={'name'} ref={labelNameRef} className={util.label}> Nombre </label>
-                </div>
-                <div className={style.formGroup}>
-                    <input type={"text"} className={util.input} {... register('surname') } />
-                    <label htmlFor={'apellido'} ref={labelSurnameRef} className={util.label} > Apellido </label>
-                </div>*/}
-            </form>
-            </div>
-        </FormProvider>
-    )
+        <div className={style.formContainer}>
+            <FormProvider {...methods}>
+                <form className={util.form} onSubmit={ methods.handleSubmit( () => {
+                    const currentForm = forms.findIndex((f) => f === formulary);
+                    const nextForm = currentForm + 1
+                    if(nextForm === forms.length || currentForm === -1){
+                        setFormulary('PersonalForm')
+                        return true;
+                    } else {
+                        setFormulary(forms[nextForm])
+                    }
+                })}>
+                    { formulary === 'PersonalForm' ? <PersonalForm/> :
+                        formulary === 'HobbyForm' ? <HobbyForm /> :
+                    <></>}
+                    <button type="submit" className={util.submit}>Submit</button>
+                </form>
+            </FormProvider>
+        </div>)
 }
 
 export default App;

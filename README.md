@@ -179,3 +179,29 @@ Mediante el uso de ``FormProvider`` podemos contextualizar el formulario al que 
 
 Y como se ve arriba, se pasan a través de ``FormProvider``: ``<FormProvider {...methods}>...``
 # learn.react.formularios
+
+# watch
+
+## Funcionamiento
+
+Watch es una función que obtenemos de ``useForm`` y que nos permite suscribirnos a los controladores y 
+rastrear sus valores:
+
+```
+  useEffect(() => {
+
+        const subscription = watch((value) => {
+            if(value[props.name] !== "" ){
+                ref?.current?.classList.add('stayAtTop');
+                ref?.current?.classList.remove('goBottom');
+            } else {
+                ref?.current?.classList.remove('stayAtTop');
+                ref?.current?.classList.add('goBottom');
+            }
+        });
+        return () => subscription.unsubscribe();
+    }, []);
+```
+
+En este caso, por ejemplo, nos suscribimos para comprar si el valor del campo que sea está vacío o no.
+En caso de estar vacío, asignamos una clase; y en caso de no estarlo, asignamos otra.

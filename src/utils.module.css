@@ -1,11 +1,25 @@
 
 .form {
-    width: 100vw;
-    height: 100vh;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-wrap: wrap;
+    border: 1px solid var(--blue-800);
+    border-radius: 4px;
+
+    padding: 4rem 2rem 1rem 2rem;
+    gap: 2rem;
+    position:relative;
 }
+
+/*.form:before {
+    content: 'Formulary';
+    top: -25px;
+    position: absolute;
+    background: var(--blue-800);
+    border-radius: 4px;
+    color: white;
+    transform: translate(100%);
+    padding: 1rem;
+}*/
 
 .input {
     border: 0;
@@ -20,14 +34,28 @@
     left: 5px;
     pointer-events: none;
     transition: all 100ms ease-in-out;
+
+    text-transform: capitalize;
 }
 
 .input:focus ~ .label {
     top: -2rem;
 }
 
+.submit {
+    background: white;
+    border: 1px solid var(--blue-800);
+    color: var(--blue-800);
+    padding: 1rem;
+
+    width: 100%;
+
+    cursor: pointer;
+}
+
 .submit:hover {
-    background: var(--blue-600);
+    background: var(--blue-800);
+    color: white;
 }
 
 .error {
