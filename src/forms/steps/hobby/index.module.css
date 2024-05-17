@@ -1,0 +1,38 @@
+
+.formTitle {
+    font-size: 1.5rem;
+    width:100%;
+}
+
+.hobbyWrapper {
+    display: flex;
+    margin-top: 1rem;
+    gap: 1rem;
+}
+
+.hobbyBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: capitalize;
+
+    padding: 1rem;
+    border: 1px solid var(--blue-800);
+    border-radius: 4px;
+
+    cursor: pointer;
+}
+
+.hobbyBox:hover {
+    color: white;
+    background-color: var(--blue-800);
+}
+
+.elementCheckbox {
+    margin-left: 0.6rem;
+}
+
+input:checked + p {
+    background: var(--blue-800);
+    color: white;
+}

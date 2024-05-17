@@ -1,0 +1,33 @@
+.foodFormWrapper {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.foodCard {
+    display: flex;
+    flex: 1 0 auto;
+    align-items: center;
+    justify-content: center;
+
+    margin-top: 2rem;
+    padding: 2rem;
+
+    border: 1px solid var(--blue-800);
+    border-radius: 4px;
+}
+
+.foodCard:hover {
+    background: var(--blue-800);
+    cursor: pointer;
+    color: white;
+    font-weight: 600;
+    border-radius: 4px;
+}
+
+input[type="radio"]:checked + p {
+    background-color: var(--blue-800);
+    color: white;
+
+}

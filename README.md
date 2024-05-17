@@ -61,6 +61,50 @@ Y gracias al ``formState`` podemos comprobar si hay errores y aprovecharlo:
 > ```
 >    `` const { register } = useForm<PracticeForm>();``
 
+### setValue y getValues
+
+Las funciones de ``setValue`` y ``getValues``te permiten establecer o recoger el valor para un campo ``register``concretamente.
+
+Un ejemplo:
+
+```
+  const handleClickOnHobby = (event: Event) => {
+        const input = (event.target) as HTMLParagraphElement;
+        const dataId = input.dataset.testid;
+        if(input.classList.contains('selected')){
+            input.classList.remove('selected')
+            setValue(`hobbies.${dataId}`, false);
+
+        } else {
+            if(dataId){
+                setValue(`hobbies.${dataId}`, true);
+                input.classList.add('selected');
+            }
+        }
+    }
+
+```
+
+En esta función, pretendemos marcar un checkbox invisible cuando el usuario haga click en un elemento Paragraph. Para ello, hacemos
+uso de la función ``setValue``, con la cual accedemos al campo mediante el nombre del hobby (del register) y establecemos un valor; true si
+ha sido seleccionado, false si no.
+
+
+Por otro lado ```getValues``` te permite obtener los valores de cada uno de los controladores del formulario:
+
+
+```
+useEffect(() => {
+        const content = getValues();
+        if(content[props.name] !== ""){
+            ref?.current?.classList.add('stayAtTop');
+        }
+    }, []);
+```
+
+
+En este otro caso, por ejemplo, recogemos todos los valores y comprobamos que para el controlador con nombre X no es vacío, asignamos una clase al elemento consecuente.
+
 ## Submit del formulario
 
 ```

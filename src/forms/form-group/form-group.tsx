@@ -4,10 +4,13 @@ import {useFormContext} from "react-hook-form";
 import {forwardRef, useEffect} from "react";
 
 export const FormGroup = forwardRef<HTMLLabelElement, {name: string}>((props, ref) => {
-    const { register, watch, formState: {errors } } = useFormContext();
+    const { register, watch, getValues, formState: {errors } } = useFormContext();
 
     useEffect(() => {
-
+        const content = getValues();
+        if(content[props.name] !== ""){
+            ref?.current?.classList.add('stayAtTop');
+        }
         const subscription = watch((value) => {
             if(value[props.name] !== "" ){
                 ref?.current?.classList.add('stayAtTop');
@@ -18,7 +21,7 @@ export const FormGroup = forwardRef<HTMLLabelElement, {name: string}>((props, re
             }
         });
         return () => subscription.unsubscribe();
-    }, []);
+    }, [getValues]);
 
     return (
         <div className={style.formGroup}>
