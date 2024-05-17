@@ -21,7 +21,7 @@ export const FoodForm = () => {
     }
 
     return (<div className={styles.wrapper}>
-        <p> Selecciona tu preferencia alimentaria </p>
+        <p className={styles.formTitle}> Selecciona tu preferencia alimentaria </p>
         <div className={styles.foodFormWrapper}>
             <input hidden={true} type={"radio"} value={'food.omnivoro'} {...register('choice')} />
             <p className={styles.foodCard} data-testid={'omnivoro'}
