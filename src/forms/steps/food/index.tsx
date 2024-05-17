@@ -20,8 +20,9 @@ export const FoodForm = () => {
         }
     }
 
-    return (<div className={styles.foodFormWrapper}>
+    return (<div className={styles.wrapper}>
         <p> Selecciona tu preferencia alimentaria </p>
+        <div className={styles.foodFormWrapper}>
             <input hidden={true} type={"radio"} value={'food.omnivoro'} {...register('choice')} />
             <p className={styles.foodCard} data-testid={'omnivoro'}
                onClick={(event) => handleClickOnFood(event)} aria-label={'button'}> Omnívoro </p>
@@ -31,5 +32,6 @@ export const FoodForm = () => {
             <input hidden={true} type={"radio"} value={'food.vegano'} {...register('choice')} />
             <p className={styles.foodCard} data-testid={'vegano'}
                onClick={(event) => handleClickOnFood(event)} aria-label={'button'} > Vegano </p>
+        </div>
     </div>)
 }
